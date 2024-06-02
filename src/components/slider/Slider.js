@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Slider.scss";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { sliderData } from "./slider-data";
-import "./Slider.scss";
 import { useNavigate } from "react-router-dom";
 
 const Slider = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideLength = sliderData.length;
-  //   console.log(slideLength);
-  const navigate = useNavigate();
-
   const autoScroll = true;
   let slideInterval;
-  let intervalTime = 5000;
+  const intervalTime = 5000;
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
-
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
   };
@@ -25,10 +22,6 @@ const Slider = () => {
   useEffect(() => {
     setCurrentSlide(0);
   }, []);
-
-  //   const auto = () => {
-  //     slideInterval = setInterval(nextSlide, intervalTime);
-  //   };
 
   useEffect(() => {
     if (autoScroll) {
@@ -38,15 +31,15 @@ const Slider = () => {
       auto();
     }
     return () => clearInterval(slideInterval);
-  }, [currentSlide, slideInterval, autoScroll]);
+  }, [currentSlide, intervalTime, autoScroll]);
 
   return (
     <div className="slider">
       <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide} />
       <AiOutlineArrowRight className="arrow next" onClick={nextSlide} />
-
       {sliderData.map((slide, index) => {
         const { image, heading, desc } = slide;
+
         return (
           <div
             key={index}
@@ -62,7 +55,6 @@ const Slider = () => {
                   <span className="span4"></span>
                   <h2>{heading}</h2>
                   <p>{desc}</p>
-                  <hr />
                   <button
                     className="--btn --btn-primary"
                     onClick={() => navigate("/shop")}

@@ -1,8 +1,9 @@
+// carousel.js
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "./Carousel.scss";
 import { responsive } from "./data";
+import CarouselItem from "./CarouselItem";
 
 const ProductCarousel = ({ products }) => {
   return (
@@ -16,7 +17,15 @@ const ProductCarousel = ({ products }) => {
         customTransition="all 500ms ease"
         transitionDuration={1000}
       >
-        {products}
+        {products.map((product) => (
+          <CarouselItem
+            key={product.id}
+            url={product.imageurl}
+            name={product.name}
+            price={product.price}
+            description={product.description}
+          />
+        ))}
       </Carousel>
     </div>
   );

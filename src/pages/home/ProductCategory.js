@@ -2,10 +2,6 @@ import React from "react";
 import "./ProductCategory.scss";
 import { useNavigate } from "react-router-dom";
 
-// https://i.ibb.co/fNkBYgr/c3.jpg
-// https://i.ibb.co/5GVkd3m/c1.jpg
-// https://i.ibb.co/nQKLjrW/c2.jpg
-
 const categories = [
   {
     id: 1,
@@ -25,11 +21,12 @@ const categories = [
 ];
 
 const Category = ({ title, image }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate;
+
   return (
     <div className="category">
       <h3>{title}</h3>
-      <img src={image} alt="img" />
+      <img src={image} alt="cat" />
       <button className="--btn" onClick={() => navigate("/shop")}>
         {"Shop Now >>>"}
       </button>
@@ -42,7 +39,7 @@ const ProductCategory = () => {
     <div className="categories">
       {categories.map((cat) => {
         return (
-          <div key={cat.id}>
+          <div key={cat.id} className="--flex-center">
             <Category title={cat.title} image={cat.image} />
           </div>
         );
