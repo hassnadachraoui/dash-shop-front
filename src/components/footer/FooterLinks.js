@@ -1,7 +1,7 @@
 import React from "react";
 import "./FooterLinks.scss";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import logoImg from "../../assets/shopito_logo.png";
+import logoImg from "../../assets/dash2.webp";
 
 const FooterLinks = () => {
   return (

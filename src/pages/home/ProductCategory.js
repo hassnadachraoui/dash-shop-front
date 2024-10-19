@@ -21,7 +21,7 @@ const categories = [
 ];
 
 const Category = ({ title, image }) => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   return (
     <div className="category">
