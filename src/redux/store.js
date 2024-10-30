@@ -6,7 +6,7 @@ import couponReducer from "../redux/features/coupon/couponSlice.js";
 import filterReducer from "../redux/features/product/filterSlice";
 import cartReducer from "../redux/features/product/cartSlice.js";
 import checkoutReducer from "../redux/features/checkout/checkoutSlice.js";
-import orderReducer from "../redux/features/order/orderSlice.js";
+import orderReducer from "../redux/features/product/orderSlice.js";
 
 export const store = configureStore({
   reducer: {

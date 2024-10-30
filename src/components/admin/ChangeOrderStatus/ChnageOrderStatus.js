@@ -6,16 +6,20 @@ import Card from "../../card/Card";
 import { useDispatch } from "react-redux";
 import { updateOrderStatus } from "../../../redux/features/product/orderSlice";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-const ChangeOrderStatus = ({ order, id }) => {
-    
+const ChangeOrderStatus = () => {
+  const { id } = useParams(); // Récupère l'ID depuis l'URL
+  console.log("Order ID from URL:", id); // Débogue l'ID récupéré
+
   const [status, setStatus] = useState("");
   const { isLoading } = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const updateOrder = async (e, id) => {
+  const updateOrder = async (e) => {
     e.preventDefault();
+
     const formData = {
       orderStatus: status,
     };
@@ -26,11 +30,10 @@ const ChangeOrderStatus = ({ order, id }) => {
   return (
     <>
       {isLoading && <Spinner />}
-
       <div className={styles.status}>
         <Card cardClass={styles.card}>
           <h4>Update Status</h4>
-          <form onSubmit={(e) => updateOrder(e, id)}>
+          <form onSubmit={updateOrder}>
             <span>
               <select
                 value={status}

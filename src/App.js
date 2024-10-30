@@ -23,7 +23,7 @@ import Checkout from "./pages/checkout/Checkout.js";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess.js";
 import OrderDetails from "./pages/order/OrderDetails.js";
 import OrderHistory from "./pages/order/OrderHistory.js";
-//import CheckoutFlutterwave from "./pages/checkout/CheckoutFlutterwave.js";
+import CheckoutWithFlutterwave from "./pages/checkout/CheckoutWithFlutterwave.js";
 
 const App = () => {
   axios.defaults.withCredentials = true;
@@ -61,10 +61,10 @@ const App = () => {
 
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout-stripe" element={<Checkout />} />
-          {/*<Route
+          <Route
             path="/checkout-flutterwave"
-            element={<CheckoutFlutterwave />}
-          />*/}
+            element={<CheckoutWithFlutterwave />}
+          />
           <Route path="/checkout-paypal" element={<CheckoutPaypal />} />
 
           <Route

@@ -69,7 +69,7 @@ export const getOrder = createAsyncThunk(
   }
 );
 
-// Update product
+// Update order status
 export const updateOrderStatus = createAsyncThunk(
   "orders/updateOrderStatus",
   async ({ id, formData }, thunkAPI) => {

@@ -235,6 +235,7 @@ const productSlice = createSlice({
 export const { RESET_PROD, GET_PRICE_RANGE } = productSlice.actions;
 
 export const selectProduct = (state) => state.product.product;
+export const selectProducts = (state) => state.product.products;
 //export const selectIsLoading = (state) => state.product.isLoading;
 
 export default productSlice.reducer

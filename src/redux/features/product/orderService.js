@@ -10,22 +10,22 @@ const createOrder = async (formData) => {
   return response.data.message;
 };
 
-// Get all products
+// Get all orders
 const getOrders = async () => {
   const response = await axios.get(API_URL);
   return response.data;
 };
 
-// Get a Product
+// Get an order
 const getOrder = async (id) => {
   const response = await axios.get(API_URL + id);
   return response.data;
 };
-// Update Product
-const updateOrderStatus = async (id, formData) => {
-  const response = await axios.patch(`${API_URL}${id}`, formData);
-  return response.data.message;
-};
+// Update Order Status
+  const updateOrderStatus = async (id, formData) => {
+    const response = await axios.patch(`${API_URL}/${id}`, formData);
+    return response.data.message;
+  };
 
 const orderService = {
   createOrder,

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Spinner } from "../../components/loader/Loader";
-import { getOrder } from "../../redux/features/order/orderSlice";
+import { getOrder } from "../../redux/features/product/orderSlice";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import OrderDetailsComp from "./OrderDetailsComp";
